@@ -10,7 +10,7 @@ For implemented letter frequency part, the pipeline is:
 
 :arrow_right:  [letter_frequency.tsv](./tsv_output/letter_frequency.tsv) :heavy_plus_sign: [report.Rmd](./report.rmd)
 
-:arrow_right: [report.html](https://rawcdn.githack.com/STAT545-UBC-students/hw09-yihaoz/463865e54a0faebcbcc28af1ba5283c671ab9c78/report.html)
+:arrow_right: [report.html](https://rawcdn.githack.com/STAT545-UBC-students/hw09-yihaoz/24a93dccde3e0f610d0c0d5c0f74f04e946321bb/report.html)
 
 Also the md output is kept [here](report.md)
 
