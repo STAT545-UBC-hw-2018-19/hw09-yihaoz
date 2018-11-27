@@ -1,20 +1,35 @@
-all: report.html
+all: data_dir report.html
 
 clean:
-	rm -f words.txt histogram.tsv histogram.png report.md report.html
+	rm -rf data tsv_output img report.md report.html
 
-report.html: report.rmd histogram.tsv histogram.png
+# Store the results in different folder
+data_dir:
+	mkdir -p data
+	mkdir -p tsv_output
+	mkdir -p img
+
+report.html: report.rmd ./tsv_output/histogram.tsv ./img/histogram.png \
+						 ./tsv_output/letter_frequency.tsv ./img/letter_frequency.png 
 	Rscript -e 'rmarkdown::render("$<")'
 
-histogram.png: histogram.tsv
+./img/histogram.png: ./tsv_output/histogram.tsv
 	Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim("$<")); ggsave("$@")'
 	rm Rplots.pdf
 
-histogram.tsv: histogram.r words.txt
+./tsv_output/histogram.tsv: ./R/histogram.r ./data/words.txt
+	Rscript $<
+	
+./tsv_output/letter_frequency.tsv: ./R/letter.r ./data/words.txt
 	Rscript $<
 
-words.txt: /usr/share/dict/words
+./data/words.txt: /usr/share/dict/words
 	cp $< $@
 
-# words.txt:
-#	Rscript -e 'download.file("http://svnweb.freebsd.org/base/head/share/dict/web2?view=co", destfile = "words.txt", quiet = TRUE)'
+./img/letter_frequency.png: ./tsv_output/letter_frequency.tsv
+	Rscript -e 'library(ggplot2); \
+	qplot(letter_count, Freq, data=read.delim("$<")) + theme_light(); \
+	ggsave("$@")'
+	rm Rplots.pdf
+	
+	## move the results into thier own folder
