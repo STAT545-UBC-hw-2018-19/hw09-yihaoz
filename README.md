@@ -4,13 +4,20 @@ The make file creates data, R and tsv_output folders.
 
 For word length part done by Jenny, [histogram.R](./R/histogram.R) is moved under [./R](./R) and [words.txt](./data/words.txt) is moved under [./data](./data) for a cleaner repository. 
 
+The output html can be viewed [here](https://rawcdn.githack.com/STAT545-UBC-students/hw09-yihaoz/24a93dccde3e0f610d0c0d5c0f74f04e946321bb/report.html)
+
+
 For implemented letter frequency part, the pipeline is:
+![](/out.png)
 
-[letter.R](./R/letter.R) :heavy_plus_sign: [word.txt](./data/words.txt) 
+Included files:
+[letter.R](./R/letter.R) 
 
-:arrow_right:  [letter_frequency.tsv](./tsv_output/letter_frequency.tsv) :heavy_plus_sign: [report.Rmd](./report.rmd)
+[word.txt](./data/words.txt) 
 
-:arrow_right: [report.html](https://rawcdn.githack.com/STAT545-UBC-students/hw09-yihaoz/24a93dccde3e0f610d0c0d5c0f74f04e946321bb/report.html)
+[letter_frequency.tsv](./tsv_output/letter_frequency.tsv) 
+
+[report.Rmd](./report.rmd)
 
 Also the md output is kept [here](report.md)
 
