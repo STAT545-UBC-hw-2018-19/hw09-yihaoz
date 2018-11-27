@@ -1,6 +1,9 @@
 # read txt file
 words <- readLines("./data/words.txt")
 
+# remove all punctuation characters
+words <- gsub("[[:punct:]]", "", words)
+
 # count all letter frequency
 letter_count <- tolower(unlist(strsplit(words, "")))
 
