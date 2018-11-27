@@ -3,7 +3,6 @@ all: data_dir report.html
 clean:
 	rm -rf data tsv_output img report.md report.html
 
-# Store the results in different folder
 data_dir:
 	mkdir -p data
 	mkdir -p tsv_output
@@ -31,5 +30,3 @@ report.html: report.rmd ./tsv_output/histogram.tsv ./img/histogram.png \
 	qplot(letter_count, Freq, data=read.delim("$<")) + theme_light(); \
 	ggsave("$@")'
 	rm Rplots.pdf
-	
-	## move the results into thier own folder
