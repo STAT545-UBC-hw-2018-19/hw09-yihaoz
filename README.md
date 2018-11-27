@@ -11,6 +11,7 @@ For implemented letter frequency part, the pipeline is:
 ![](/out.png)
 
 Included files:
+
 [letter.R](./R/letter.R) 
 
 [word.txt](./data/words.txt) 
